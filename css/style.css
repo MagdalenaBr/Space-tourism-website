@@ -1,0 +1,541 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+  font-size: 1.5rem;
+  background-color: #0b0d17;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-repeat: repeat;
+  font-family: "Barlow", sans-serif;
+}
+
+a,
+.intro,
+h4 {
+  text-transform: uppercase;
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+h4,
+p {
+  color: #d0d6f9;
+}
+
+a {
+  cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+}
+
+h1,
+h2 {
+  font-family: "Bellefair", serif;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 400;
+}
+
+.header__hr {
+  display: none;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+p {
+  line-height: 2.5rem;
+}
+
+.home-page {
+  background-image: url("../assets/home/background-home-mobile.jpg");
+}
+
+.header {
+  position: relative;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.logo {
+  padding: 1.4rem 0 0 2.4rem;
+}
+
+.header__btn {
+  display: none;
+}
+
+.nav {
+  padding: 3.9rem 3.9rem 0 3.9rem;
+}
+
+.nav____list {
+  gap: 2rem;
+}
+
+.nav__item {
+  font-size: 1.6rem;
+  letter-spacing: 2.7px;
+}
+
+.nav__item span {
+  padding-right: 0.5rem;
+  font-weight: bold;
+}
+
+.destination__planet-img {
+  -webkit-animation: rotation 180s infinite linear;
+          animation: rotation 180s infinite linear;
+}
+
+@media (max-width: 650px) {
+  .header__btn {
+    position: absolute;
+    top: 3.3rem;
+    right: 2.4rem;
+    display: block;
+    width: 2.4rem;
+    height: 2.1rem;
+    background-image: url("../assets/shared/icon-hamburger.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    z-index: 999;
+  }
+  .nav {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: fixed;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    overflow: hidden;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    inset: 0 0 0 30%;
+    background-color: rgba(255, 255, 255, 0.04);
+    -webkit-backdrop-filter: blur(40.7742px);
+            backdrop-filter: blur(40.7742px);
+    z-index: 99;
+  }
+  .nav.active {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  .nav__list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 11.6rem;
+    gap: 5rem;
+  }
+}
+
+@media (min-width: 650px) {
+  .border {
+    border-bottom: 3px solid #fff;
+  }
+  .header {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .nav {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100%;
+    width: 70%;
+    background-color: rgba(255, 255, 255, 0.04);
+    -webkit-backdrop-filter: blur(40.7742px);
+            backdrop-filter: blur(40.7742px);
+  }
+  .nav__item span {
+    display: none;
+  }
+  .nav__list {
+    width: 100%;
+    height: 5rem;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .nav__item {
+    font-size: 1.4rem;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  .nav__item:hover {
+    border-bottom: 3px solid rgba(255, 255, 255, 0.432);
+  }
+}
+
+@media (min-width: 650px) and (min-width: 1100px) {
+  body {
+    padding: 0 0 5.5rem 5.5rem;
+  }
+  .header {
+    padding-top: 4rem;
+  }
+  .nav {
+    width: 60%;
+  }
+  .nav__item span {
+    display: inline-block;
+  }
+  .nav__item {
+    font-size: 1.6rem;
+  }
+  .header__hr {
+    position: relative;
+    left: 7rem;
+    width: 30%;
+    display: block;
+    border: 1px solid #fff;
+    opacity: 0.25;
+    z-index: 9999;
+  }
+}
+
+.home {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 80%;
+  padding: 0 2.4rem;
+  text-align: center;
+  color: #d0d6f9;
+}
+
+.home__content {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1.6rem;
+  border: 1px solid black;
+}
+
+.home__title {
+  font-size: 8rem;
+}
+
+.home__btn {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding: 6.2rem 2.5rem;
+  font-size: 2rem;
+  font-family: "Bellefair", serif;
+  letter-spacing: 1.25px;
+  border-radius: 50%;
+  border: none;
+  color: #0b0d17;
+  background-color: #fff;
+}
+
+.intro {
+  font-size: 1.6rem;
+  letter-spacing: 2.7px;
+}
+
+@media (min-width: 650px) {
+  .home-page {
+    background-image: url("../assets/home/background-home-tablet.jpg");
+  }
+  .home__content {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 0 auto;
+    width: 60%;
+    border: none;
+  }
+  .home__title {
+    font-size: 15rem;
+  }
+  .home__text {
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+  }
+  .home__btn {
+    padding: 10.3rem 4.7rem;
+    font-size: 3.2rem;
+    letter-spacing: 2px;
+  }
+  .intro {
+    font-size: 2rem;
+    letter-spacing: 3.38px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .home-page {
+    background-image: url("../assets/home/background-home-desktop.jpg");
+  }
+  .home {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    gap: 5rem;
+  }
+  .home__content {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    width: 50%;
+    text-align: left;
+  }
+  .home__text {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    width: 60%;
+    font-size: 1.8rem;
+  }
+  .home__btn {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 0px;
+            flex: 0 0 0;
+    padding: 11.8rem 6.2rem;
+  }
+  .home .btn {
+    width: 30%;
+  }
+  .intro {
+    font-size: 2.8rem;
+  }
+}
+
+.destination-page {
+  background-image: url("../assets/destination/background-destination-mobile.jpg");
+}
+
+.destination {
+  padding: 2.4rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 3rem;
+}
+
+.destination__container {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3rem;
+}
+
+.destination__hr {
+  width: 95%;
+  margin: 0 auto;
+  border: 1px solid #383b4b;
+}
+
+.destination__planet-img {
+  width: 17rem;
+}
+
+.destination__planets {
+  gap: 3rem;
+  font-size: 14px;
+  letter-spacing: 2.36px;
+}
+
+.destination__intro {
+  color: #fff;
+}
+
+.destination__intro span {
+  opacity: 0.25;
+}
+
+.destination__title {
+  text-align: center;
+  font-size: 5.6rem;
+}
+
+.destination__text {
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.destination__data {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3rem;
+  text-align: center;
+}
+
+.destination__data-title {
+  font-size: 1.4rem;
+  letter-spacing: 2.36px;
+  font-weight: 400;
+}
+
+.destination__data-number {
+  padding-top: 1.5rem;
+  font-size: 24px;
+  color: #fff;
+  font-family: "Bellefair", serif;
+  text-transform: uppercase;
+}
+
+@media (min-width: 650px) {
+  .destination-page {
+    background-image: url("../assets/destination/background-destination-tablet.jpg");
+  }
+  .destination {
+    gap: 4.5rem;
+    padding: 3.85rem;
+  }
+  .destination__container {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 4.5rem;
+  }
+  .destination__planet-img {
+    width: 30rem;
+  }
+  .destination__intro {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+  .destination__planets {
+    font-size: 16px;
+  }
+  .destination__title {
+    font-size: 8rem;
+  }
+  .destination__text {
+    font-size: 1.6rem;
+    width: 75%;
+    margin: 0 auto;
+  }
+  .destination__data {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    gap: 7rem;
+  }
+  .destination__data-number {
+    font-size: 28px;
+  }
+  .destination__planet-name {
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  .destination__planet-name:hover {
+    border-bottom: 3px solid #fff;
+    opacity: 0.25;
+  }
+}
+
+@media (min-width: 1100px) {
+  .destination-page {
+    background-image: url("../assets/destination/background-destination-desktop.jpg");
+  }
+  .destination {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .destination__intro {
+    font-size: 2.8rem;
+    letter-spacing: 4.725px;
+  }
+  .destination__planet-img {
+    width: 44.5rem;
+  }
+  .destination__container--one {
+    width: 50%;
+    gap: 10rem;
+  }
+  .destination__container--two {
+    width: 50%;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+  }
+  .destination__title {
+    font-size: 10rem;
+    text-align: left;
+  }
+  .destination__text {
+    font-size: 1.8rem;
+    margin: 0;
+    text-align: left;
+  }
+}
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+@keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+/*# sourceMappingURL=style.css.map */
