@@ -1,1 +1,1 @@
-Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+Live Site URL: [https://magdalenabr.github.io/Space-tourism-website/]
