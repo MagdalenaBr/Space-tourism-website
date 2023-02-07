@@ -81,8 +81,9 @@ slidersBtn.forEach((slider, i) => {
 		);
 		slider.classList.add("slider__btn--active");
 		const dataJson = getData().then(data => {
+			number = i;
 			const { crew } = data;
-			renderCrewData(crew, i);
+			renderCrewData(crew, number);
 		});
 	});
 });
