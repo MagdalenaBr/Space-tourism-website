@@ -455,6 +455,8 @@ p {
 		text-align: center;
 		width: 90%;
 		border-bottom: 1px solid #383b4b;
+		touch-action: none;
+		
 	}
 	&__img {
 		position: relative;
