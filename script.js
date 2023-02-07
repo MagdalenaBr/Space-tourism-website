@@ -10,6 +10,18 @@ const destinationText = document.querySelector(".destination__text");
 const destinationPlanetImg = document.querySelector(".destination__planet-img");
 const destinationDistanceNum = document.querySelector(".distance-number");
 const destinationTravelNum = document.querySelector(".travel-number");
+const crewImg = document.querySelector(".crew__img");
+const crewProfession = document.querySelector(".crew__profession");
+const crewMemberName = document.querySelector(".crew__name");
+const crewMemberDescription = document.querySelector(".crew__description");
+const slidersBtn = Array.from(document.querySelectorAll(".slider__btn"));
+const crewContainer = document.querySelector(".crew__img-container");
+let number = 0;
+let startPos;
+let currPos;
+let lastPos;
+
+
 
 /////NAV///////
 btn.addEventListener("click", function () {
@@ -51,11 +63,7 @@ planets.forEach((planet, i) => {
 
 ////////CREW//////
 
-const crewImg = document.querySelector(".crew__img");
-const crewProfession = document.querySelector(".crew__profession");
-const crewMemberName = document.querySelector(".crew__name");
-const crewMemberDescription = document.querySelector(".crew__description");
-const slidersBtn = Array.from(document.querySelectorAll(".slider__btn"));
+
 
 const renderCrewData = function (data, i) {
 	crewImg.src = data[i].images.png;
@@ -78,13 +86,8 @@ slidersBtn.forEach((slider, i) => {
 	});
 });
 
-const crewContainer = document.querySelector(".crew__img-container");
 
-let number = 0;
-let startPos;
-let currPos;
-let lastPos;
-
+//// CREW TOUCH EVENTS
 crewContainer.addEventListener(
 	"touchstart",
 	function (e) {
