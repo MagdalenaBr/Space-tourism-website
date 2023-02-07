@@ -78,11 +78,16 @@ p {
   opacity: 0.25;
 }
 
+main {
+  height: 91%;
+}
+
 .home-page {
   background-image: url("../assets/home/background-home-mobile.jpg");
 }
 
 .header {
+  height: 9%;
   position: relative;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -212,6 +217,7 @@ p {
     padding: 0 0 5.5rem 5.5rem;
   }
   .header {
+    height: auto;
     padding-top: 4rem;
   }
   .nav {
@@ -305,6 +311,9 @@ p {
 }
 
 @media (min-width: 1100px) {
+  main {
+    height: auto;
+  }
   .home-page {
     background-image: url("../assets/home/background-home-desktop.jpg");
   }
@@ -551,11 +560,11 @@ p {
   border-bottom: 1px solid #383b4b;
   -ms-touch-action: none;
       touch-action: none;
+  line-height: 0;
 }
 
 .crew__img {
   position: relative;
-  bottom: -0.3rem;
   max-height: 22.2rem;
 }
 
@@ -568,6 +577,7 @@ p {
   height: 1rem;
   background-color: #97979791;
   border-radius: 50%;
+  border: none;
   cursor: pointer;
 }
 
@@ -590,6 +600,104 @@ p {
 .crew__name {
   padding: 0.5rem 0 1.6rem 0;
   font-size: 2.4rem;
+}
+
+@media (min-width: 650px) {
+  .crew-page {
+    background-image: url("../assets/crew/background-crew-tablet.jpg");
+  }
+  .crew {
+    display: -ms-grid;
+    display: grid;
+    gap: 4rem;
+    padding: 3.85rem 3.85rem 0;
+  }
+  .crew__img {
+    max-height: 53.2rem;
+  }
+  .crew__img-container {
+    -ms-grid-row: 4;
+    -ms-grid-row-span: 1;
+    grid-row: 4/5;
+    border: none;
+    -ms-flex-item-align: end;
+        -ms-grid-row-align: end;
+        align-self: end;
+  }
+  .crew .slider__navigation {
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    grid-row: 3/4;
+    margin: 0 auto;
+  }
+  .crew__profession {
+    font-size: 2.4rem;
+    opacity: 0.5;
+  }
+  .crew__name {
+    padding: 0.8rem 0 1.6rem 0;
+    font-size: 4rem;
+  }
+  .crew__description {
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+    width: 65%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1100px) {
+  .crew-page {
+    background-image: url("../assets/crew/background-crew-desktop.jpg");
+  }
+  .header {
+    height: 14vh;
+  }
+  .crew {
+    height: 86vh;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: end;
+    gap: 4rem;
+    padding: 3.85rem 3.85rem 0;
+  }
+  .crew__img-container {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-column: 2/3;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 3;
+    grid-row: 1/4;
+  }
+  .crew__img {
+    max-height: 71.2rem;
+  }
+  .crew .slider__navigation {
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    grid-row: 3/4;
+    margin: 0 auto;
+  }
+  .crew__profession {
+    font-size: 2.4rem;
+    opacity: 0.5;
+  }
+  .crew__name {
+    padding: 0.8rem 0 1.6rem 0;
+    font-size: 4rem;
+  }
+  .crew__description {
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+    width: 65%;
+    margin: 0 auto;
+  }
 }
 
 @-webkit-keyframes rotation {

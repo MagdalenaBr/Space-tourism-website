@@ -18,6 +18,7 @@ body {
 	background-repeat: repeat;
 	font-family: "Barlow", sans-serif;
 }
+
 a,
 .intro,
 h4 {
@@ -65,11 +66,15 @@ p {
 		opacity: 0.25;
 	}
 }
+main {
+	height: 91%;
+}
 ////////////////////////////////HEADER////////////////////////////////////////////////////////////////////
 .home-page {
 	background-image: url("../assets/home/background-home-mobile.jpg");
 }
 .header {
+	height: 9%;
 	position: relative;
 	justify-content: space-between;
 }
@@ -172,6 +177,7 @@ p {
 		}
 
 		.header {
+			height: auto;
 			padding-top: 4rem;
 		}
 		.nav {
@@ -261,6 +267,9 @@ p {
 
 /////DESKTOP/////////
 @media (min-width: 1100px) {
+	main {
+		height: auto;
+	}
 	.home-page {
 		background-image: url("../assets/home/background-home-desktop.jpg");
 	}
@@ -456,22 +465,23 @@ p {
 		width: 90%;
 		border-bottom: 1px solid #383b4b;
 		touch-action: none;
-		
+		line-height: 0;
 	}
 	&__img {
 		position: relative;
-		bottom: -0.3rem;
 		max-height: 22.2rem;
 	}
 
 	.slider__navigation {
 		gap: 1.5rem;
 	}
+
 	.slider__btn {
 		width: 1rem;
 		height: 1rem;
 		background-color: #97979791;
 		border-radius: 50%;
+		border: none;
 		cursor: pointer;
 		&--active {
 			background-color: #fff;
@@ -493,6 +503,92 @@ p {
 	}
 }
 
+////TABLET/////////
+
+@media (min-width: 650px) {
+	.crew-page {
+		background-image: url("../assets/crew/background-crew-tablet.jpg");
+	}
+
+	.crew {
+		display: grid;
+		gap: 4rem;
+		padding: 3.85rem 3.85rem 0;
+
+		&__img {
+			max-height: 53.2rem;
+		}
+		&__img-container {
+			grid-row: 4/5;
+			border: none;
+			align-self: end;
+		}
+		.slider__navigation {
+			grid-row: 3/4;
+			margin: 0 auto;
+		}
+		&__profession {
+			font-size: 2.4rem;
+			opacity: 0.5;
+		}
+		&__name {
+			padding: 0.8rem 0 1.6rem 0;
+			font-size: 4rem;
+		}
+		&__description {
+			font-size: 1.6rem;
+			line-height: 2.8rem;
+			width: 65%;
+			margin: 0 auto;
+		}
+	}
+}
+
+////////DESKTOP ///////
+@media (min-width: 1100px) {
+	.crew-page {
+		background-image: url("../assets/crew/background-crew-desktop.jpg");
+	}
+	.header {
+		height: 14vh;
+	}
+	.crew {
+		height: 86vh;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+		align-items: end;
+
+		gap: 4rem;
+		padding: 3.85rem 3.85rem 0;
+
+		&__img-container {
+			grid-column: 2/3;
+			grid-row: 1/4;
+		}
+		&__img {
+			max-height: 71.2rem;
+		}
+		.slider__navigation {
+			grid-row: 3/4;
+			margin: 0 auto;
+		}
+		&__profession {
+			font-size: 2.4rem;
+			opacity: 0.5;
+		}
+		&__name {
+			padding: 0.8rem 0 1.6rem 0;
+			font-size: 4rem;
+		}
+		&__description {
+			font-size: 1.6rem;
+			line-height: 2.8rem;
+			width: 65%;
+			margin: 0 auto;
+		}
+	}
+}
 @keyframes rotation {
 	from {
 		transform: rotate(0deg);
