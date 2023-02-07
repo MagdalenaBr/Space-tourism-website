@@ -21,8 +21,6 @@ let startPos;
 let currPos;
 let lastPos;
 
-
-
 /////NAV///////
 btn.addEventListener("click", function () {
 	navMenu.classList.toggle("active");
@@ -63,7 +61,10 @@ planets.forEach((planet, i) => {
 
 ////////CREW//////
 
-
+const activeDot = function () {
+	slidersBtn.forEach(slider => slider.classList.remove("slider__btn--active"));
+	slidersBtn[number].classList.add("slider__btn--active");
+};
 
 const renderCrewData = function (data, i) {
 	crewImg.src = data[i].images.png;
@@ -85,7 +86,6 @@ slidersBtn.forEach((slider, i) => {
 		});
 	});
 });
-
 
 //// CREW TOUCH EVENTS
 crewContainer.addEventListener(
@@ -123,11 +123,13 @@ crewContainer.addEventListener(
 			if (currPos < -30 && number < "3") {
 				number++;
 				renderCrewData(crew, number);
+				activeDot();
 			}
 
 			if (currPos > 30 && number > "0") {
 				number--;
 				renderCrewData(crew, number);
+				activeDot();
 			}
 		});
 	},
