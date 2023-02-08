@@ -66,15 +66,12 @@ p {
 		opacity: 0.25;
 	}
 }
-main {
-	height: 91%;
-}
+
 ////////////////////////////////HEADER////////////////////////////////////////////////////////////////////
 .home-page {
 	background-image: url("../assets/home/background-home-mobile.jpg");
 }
 .header {
-	height: 9%;
 	position: relative;
 	justify-content: space-between;
 }
@@ -511,6 +508,7 @@ main {
 	}
 
 	.crew {
+		height: 91.5%;
 		display: grid;
 		gap: 4rem;
 		padding: 3.85rem 3.85rem 0;
@@ -549,18 +547,12 @@ main {
 	.crew-page {
 		background-image: url("../assets/crew/background-crew-desktop.jpg");
 	}
-	.header {
-		height: 14vh;
-	}
 	.crew {
-		height: 86vh;
-		display: grid;
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 1fr 1fr 1fr;
-		align-items: end;
-
-		gap: 4rem;
-		padding: 3.85rem 3.85rem 0;
+		&__text {
+			text-align: left;
+		}
 
 		&__img-container {
 			grid-column: 2/3;
@@ -569,23 +561,30 @@ main {
 		&__img {
 			max-height: 71.2rem;
 		}
+		&__description,
 		.slider__navigation {
-			grid-row: 3/4;
-			margin: 0 auto;
+			margin: 0;
 		}
 		&__profession {
-			font-size: 2.4rem;
-			opacity: 0.5;
+			font-size: 3.2rem;
 		}
 		&__name {
-			padding: 0.8rem 0 1.6rem 0;
-			font-size: 4rem;
+			padding: 1.5rem 0 1.6rem 0;
+			font-size: 5.6rem;
 		}
 		&__description {
-			font-size: 1.6rem;
-			line-height: 2.8rem;
-			width: 65%;
-			margin: 0 auto;
+			font-size: 1.8rem;
+			line-height: 3.2rem;
+			width: 80%;
+		}
+		.slider__navigation {
+			position: absolute;
+			bottom: 94px;
+			gap: 2.5rem;
+		}
+		.slider__btn {
+			width: 1.5rem;
+			height: 1.5rem;
 		}
 	}
 }

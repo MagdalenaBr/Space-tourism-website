@@ -78,16 +78,11 @@ p {
   opacity: 0.25;
 }
 
-main {
-  height: 91%;
-}
-
 .home-page {
   background-image: url("../assets/home/background-home-mobile.jpg");
 }
 
 .header {
-  height: 9%;
   position: relative;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -607,6 +602,7 @@ main {
     background-image: url("../assets/crew/background-crew-tablet.jpg");
   }
   .crew {
+    height: 91.5%;
     display: -ms-grid;
     display: grid;
     gap: 4rem;
@@ -650,22 +646,14 @@ main {
   .crew-page {
     background-image: url("../assets/crew/background-crew-desktop.jpg");
   }
-  .header {
-    height: 14vh;
-  }
   .crew {
-    height: 86vh;
-    display: -ms-grid;
-    display: grid;
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
     -ms-grid-rows: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: end;
-    gap: 4rem;
-    padding: 3.85rem 3.85rem 0;
+  }
+  .crew__text {
+    text-align: left;
   }
   .crew__img-container {
     -ms-grid-column: 2;
@@ -678,25 +666,30 @@ main {
   .crew__img {
     max-height: 71.2rem;
   }
+  .crew__description,
   .crew .slider__navigation {
-    -ms-grid-row: 3;
-    -ms-grid-row-span: 1;
-    grid-row: 3/4;
-    margin: 0 auto;
+    margin: 0;
   }
   .crew__profession {
-    font-size: 2.4rem;
-    opacity: 0.5;
+    font-size: 3.2rem;
   }
   .crew__name {
-    padding: 0.8rem 0 1.6rem 0;
-    font-size: 4rem;
+    padding: 1.5rem 0 1.6rem 0;
+    font-size: 5.6rem;
   }
   .crew__description {
-    font-size: 1.6rem;
-    line-height: 2.8rem;
-    width: 65%;
-    margin: 0 auto;
+    font-size: 1.8rem;
+    line-height: 3.2rem;
+    width: 80%;
+  }
+  .crew .slider__navigation {
+    position: absolute;
+    bottom: 94px;
+    gap: 2.5rem;
+  }
+  .crew .slider__btn {
+    width: 1.5rem;
+    height: 1.5rem;
   }
 }
 

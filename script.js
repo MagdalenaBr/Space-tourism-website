@@ -18,7 +18,7 @@ const slidersBtn = Array.from(document.querySelectorAll(".slider__btn"));
 const crewContainer = document.querySelector(".crew__img-container");
 let number = 0;
 let startPos;
-let currPos;
+let touchLenght;
 let lastPos;
 
 /////NAV///////
@@ -36,6 +36,11 @@ const getData = async function () {
 	return data;
 };
 
+const activeDot = function () {
+	slidersBtn.forEach(slider => slider.classList.remove("slider__btn--active"));
+	slidersBtn[number].classList.add("slider__btn--active");
+};
+
 /// RENDER DATA
 
 const renderPlanetData = function (planet, i) {
@@ -44,6 +49,12 @@ const renderPlanetData = function (planet, i) {
 	destinationPlanetImg.src = planet[i].images.png;
 	destinationDistanceNum.textContent = planet[i].distance;
 	destinationTravelNum.textContent = planet[i].travel;
+};
+const renderCrewData = function (data, i) {
+	crewImg.src = data[i].images.png;
+	crewProfession.textContent = data[i].role;
+	crewMemberName.textContent = data[i].name;
+	crewMemberDescription.textContent = data[i].bio;
 };
 
 //// CHANGING PLANET DATA IN DOM
@@ -59,19 +70,6 @@ planets.forEach((planet, i) => {
 	});
 });
 
-////////CREW//////
-
-const activeDot = function () {
-	slidersBtn.forEach(slider => slider.classList.remove("slider__btn--active"));
-	slidersBtn[number].classList.add("slider__btn--active");
-};
-
-const renderCrewData = function (data, i) {
-	crewImg.src = data[i].images.png;
-	crewProfession.textContent = data[i].role;
-	crewMemberName.textContent = data[i].name;
-	crewMemberDescription.textContent = data[i].bio;
-};
 // CHANGING CREW DATA IN DOM
 slidersBtn.forEach((slider, i) => {
 	slider.addEventListener("click", function (e) {
@@ -105,7 +103,7 @@ crewContainer.addEventListener(
 	function (e) {
 		e.preventDefault();
 		lastPos = e.touches[0].pageX;
-		return (currPos = lastPos - startPos);
+		return (touchLenght = lastPos - startPos);
 	},
 	{
 		passive: false,
@@ -115,19 +113,16 @@ crewContainer.addEventListener(
 crewContainer.addEventListener(
 	"touchend",
 	function (e) {
-		console.log(e);
 		e.preventDefault();
-
 		const dataJson = getData().then(data => {
 			const { crew } = data;
-			console.log(currPos);
-			if (currPos < -30 && number < "3") {
+			if (touchLenght < -30 && number < "3") {
 				number++;
 				renderCrewData(crew, number);
 				activeDot();
 			}
 
-			if (currPos > 30 && number > "0") {
+			if (touchLenght > 30 && number > "0") {
 				number--;
 				renderCrewData(crew, number);
 				activeDot();
