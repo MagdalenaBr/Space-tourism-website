@@ -18,6 +18,10 @@ body {
 	background-repeat: repeat;
 	font-family: "Barlow", sans-serif;
 }
+main {
+	max-width: 1440px;
+	margin: 0 auto;
+}
 
 a,
 .intro,
@@ -55,15 +59,29 @@ h2 {
 p {
 	line-height: 2.5rem;
 }
+
 .intro {
 	font-size: 1.6rem;
 	letter-spacing: 2.7px;
-}
-.destination__intro,
-.crew__intro {
 	color: #fff;
 	span {
 		opacity: 0.25;
+	}
+}
+.border-hover {
+	transition: 0.5s;
+	&::after {
+		display: block;
+		content: "";
+		border-bottom: solid 3px rgba(255, 255, 255, 0.548);
+		transform: scaleX(0);
+		transition: transform 0.5s ease-in-out;
+	}
+	&:hover::after {
+		transform: scaleX(1);
+	}
+	&:hover {
+		opacity: 0.5;
 	}
 }
 
@@ -160,10 +178,10 @@ p {
 		}
 		&__item {
 			font-size: 1.4rem;
-			transition: 0.3s;
-
-			&:hover {
-				border-bottom: 3px solid rgba(255, 255, 255, 0.432);
+			&::after {
+				position: relative;
+				top: 1px;
+				padding-bottom: 2.7rem;
 			}
 		}
 	}
@@ -227,6 +245,7 @@ p {
 		border: none;
 		color: #0b0d17;
 		background-color: #fff;
+		transition: 0.5s;
 	}
 }
 
@@ -283,15 +302,19 @@ p {
 
 		&__text {
 			align-self: flex-start;
-			width: 60%;
+			width: 70%;
 			font-size: 1.8rem;
 		}
 		&__btn {
 			flex: 0 0 0;
 			padding: 11.8rem 6.2rem;
+			&:hover {
+				box-shadow: 0px 0px 0px 5rem rgba(255, 255, 255, 0.123);
+				// opacity: box-shadow 0.1;
+			}
 		}
-		.btn {
-			width: 30%;
+		.explore {
+			width: 40%;
 		}
 	}
 	.intro {
@@ -381,9 +404,6 @@ p {
 		&__planet-img {
 			width: 30rem;
 		}
-		&__intro {
-			align-self: flex-start;
-		}
 		&__planets {
 			font-size: 16px;
 		}
@@ -404,11 +424,20 @@ p {
 		}
 		&__planet-name {
 			transition: 0.3s;
+			line-height: 3rem;
 		}
-		&__planet-name:hover {
-			border-bottom: 3px solid #fff;
-			opacity: 0.25;
+		&__planet-name::after {
+			position: relative;
+			top: 3px;
+			// display: block;
+			// content: "";
+			// border-bottom: solid 3px rgba(255, 255, 255, 0.432);
+			// transform: scaleX(0);
+			// transition: transform 0.5s ease-in-out;
 		}
+		// &__planet-name:hover::after {
+		// 	transform: scaleX(1);
+		// }
 	}
 }
 @media (min-width: 1100px) {
@@ -417,7 +446,8 @@ p {
 	}
 	.destination {
 		flex-direction: row;
-		&__intro {
+		.intro {
+			align-self: flex-start;
 			font-size: 2.8rem;
 			letter-spacing: 4.725px;
 		}
@@ -443,55 +473,19 @@ p {
 		}
 	}
 }
+//////////////style ogólne/////////
 
-/////////////////////////////////// CREW PAGE //////////////////////////////////////////////////////////////////
-
-.crew-page {
-	background-image: url("../assets/crew/background-crew-mobile.jpg");
-}
-
-.crew {
+.subpage {
 	padding: 2.4rem;
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
 	gap: 3rem;
-
-	&__img-container {
-		text-align: center;
-		width: 90%;
-		border-bottom: 1px solid #383b4b;
-		touch-action: none;
-		line-height: 0;
-	}
-	&__img {
-		position: relative;
-		max-height: 22.2rem;
-	}
-
-	.slider__navigation {
-		gap: 1.5rem;
-	}
-
-	.slider__btn {
-		width: 1rem;
-		height: 1rem;
-		background-color: #97979791;
-		border-radius: 50%;
-		border: none;
-		cursor: pointer;
-		&--active {
-			background-color: #fff;
-		}
-	}
 	&__text {
 		text-align: center;
 	}
-	&__profession {
+	&__info-intro {
 		font-family: "Bellefair", serif;
-		font-size: 1.6rem;
-		opacity: 0.25;
-		color: #fff;
 		text-transform: uppercase;
 	}
 	&__name {
@@ -499,33 +493,27 @@ p {
 		font-size: 2.4rem;
 	}
 }
+.slider__navigation {
+	gap: 1.5rem;
+}
 
-////TABLET/////////
+.slider__btn {
+	width: 1rem;
+	height: 1rem;
+	background-color: #97979791;
+	border-radius: 50%;
+	border: none;
+	cursor: pointer;
+	transition: 0.5s;
+	&--active {
+		background-color: #fff;
+	}
+}
 
 @media (min-width: 650px) {
-	.crew-page {
-		background-image: url("../assets/crew/background-crew-tablet.jpg");
-	}
-
-	.crew {
-		height: 91.5%;
-		display: grid;
+	.subpage {
 		gap: 4rem;
-		padding: 3.85rem 3.85rem 0;
-
-		&__img {
-			max-height: 53.2rem;
-		}
-		&__img-container {
-			grid-row: 4/5;
-			border: none;
-			align-self: end;
-		}
-		.slider__navigation {
-			grid-row: 3/4;
-			margin: 0 auto;
-		}
-		&__profession {
+		&__info-intro {
 			font-size: 2.4rem;
 			opacity: 0.5;
 		}
@@ -541,31 +529,9 @@ p {
 		}
 	}
 }
-
-////////DESKTOP ///////
 @media (min-width: 1100px) {
-	.crew-page {
-		background-image: url("../assets/crew/background-crew-desktop.jpg");
-	}
-	.crew {
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 1fr 1fr 1fr;
-		&__text {
-			text-align: left;
-		}
-
-		&__img-container {
-			grid-column: 2/3;
-			grid-row: 1/4;
-		}
-		&__img {
-			max-height: 71.2rem;
-		}
-		&__description,
-		.slider__navigation {
-			margin: 0;
-		}
-		&__profession {
+	.subpage {
+		&__info-intro {
 			font-size: 3.2rem;
 		}
 		&__name {
@@ -577,9 +543,94 @@ p {
 			line-height: 3.2rem;
 			width: 80%;
 		}
+	}
+	.slider__btn {
+		&:hover {
+			background-color: #e7e7e7b9;
+		}
+	}
+}
+
+/////////////////////////////////// CREW PAGE //////////////////////////////////////////////////////////////////
+
+.crew-page {
+	background-image: url("../assets/crew/background-crew-mobile.jpg");
+}
+
+.crew {
+	&__img-container {
+		text-align: center;
+		width: 90%;
+		border-bottom: 1px solid #383b4b;
+		line-height: 0;
+	}
+	&__img {
+		max-height: 22.2rem;
+	}
+	&__intro {
+		font-size: 1.6rem;
+		opacity: 0.25;
+		color: #fff;
+	}
+}
+
+////TABLET/////////
+
+@media (min-width: 650px) {
+	.crew-page {
+		background-image: url("../assets/crew/background-crew-tablet.jpg");
+	}
+
+	.crew {
+		display: grid;
+		padding: 3.85rem 3.85rem 0;
+
+		&__img {
+			max-height: 53.2rem;
+		}
+		&__img-container {
+			grid-row: 4/5;
+			border: none;
+			align-self: end;
+		}
 		.slider__navigation {
-			position: absolute;
-			bottom: 94px;
+			grid-row: 3/4;
+			margin: 0 auto;
+		}
+	}
+}
+
+////////DESKTOP ///////
+@media (min-width: 1100px) {
+	.crew-page {
+		background-image: url("../assets/crew/background-crew-desktop.jpg");
+		padding-bottom: 0;
+	}
+	.crew {
+		height: 85%;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+		&__text {
+			text-align: left;
+		}
+
+		&__img-container {
+			grid-column: 2/3;
+			grid-row: 1/4;
+			width: 100%;
+			height: auto;
+		}
+		&__img {
+			max-height: 60rem;
+		}
+		&__description,
+		.slider__navigation {
+			margin: 0;
+		}
+		.slider__navigation {
+			// position: absolute;
+			// bottom: 94px;
+			// padding-bottom: 7rem;
 			gap: 2.5rem;
 		}
 		.slider__btn {
@@ -588,6 +639,103 @@ p {
 		}
 	}
 }
+
+///////////////////////////TECHNOLOGY///////////////////////////
+
+.technology-page {
+	background-image: url("../assets/technology/background-technology-mobile.jpg");
+}
+
+.technology {
+	padding: 2.4rem 0 2.4rem 0;
+	&__img-container {
+		width: 100%;
+	}
+	&__img {
+		width: 100%;
+	}
+	&__text {
+		width: 87%;
+	}
+	&__intro {
+		color: #d0d6f9;
+		font-size: 1.4rem;
+		opacity: 1;
+	}
+	.slider__btn {
+		width: 4rem;
+		height: 4rem;
+		font-size: 16px;
+		background-color: transparent;
+		border: 1px solid #ffffff46;
+		color: #ffffffa1;
+		&--active {
+			color: #0b0d17;
+			background-color: #fff;
+		}
+	}
+}
+
+@media (min-width: 650px) {
+	.technology-page {
+		background-image: url("../assets/technology/background-technology-tablet.jpg");
+	}
+
+	.technology {
+		.intro {
+			align-self: flex-start;
+			padding: 4rem 0 3rem 4.85rem;
+		}
+		&__intro {
+			font-size: 1.6rem;
+		}
+		&__text {
+			width: 90%;
+		}
+		.slider__btn {
+			width: 6rem;
+			height: 6rem;
+		}
+	}
+}
+
+@media (min-width: 1100px) {
+	.technology-page {
+		background-image: url("../assets/technology/background-technology-desktop.jpg");
+	}
+
+	.technology {
+		height: 90%;
+		display: grid;
+		align-content: center;
+		.intro {
+			grid-column: 1/3;
+		}
+		&__img-container {
+			grid-column: 3/4;
+			grid-row: 1/4;
+		}
+		&__text {
+			grid-column: 2/3;
+			text-align: left;
+		}
+		&__description {
+			margin: 0;
+		}
+		.slider__navigation {
+			display: flex;
+			flex-direction: column;
+			grid-row: 2/3;
+			grid-column: 1/2;
+		}
+		.slider__btn {
+			&:hover {
+				border: 1px solid #fff;
+			}
+		}
+	}
+}
+
 @keyframes rotation {
 	from {
 		transform: rotate(0deg);

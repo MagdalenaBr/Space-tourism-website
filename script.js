@@ -2,9 +2,7 @@
 
 const navMenu = document.querySelector(".nav");
 const btn = document.querySelector(".header__btn");
-const planets = Array.from(
-	document.querySelectorAll(".destination__planet-name")
-);
+const planets = [...document.querySelectorAll(".destination__planet-name")];
 const destinationTitle = document.querySelector(".destination__title");
 const destinationText = document.querySelector(".destination__text");
 const destinationPlanetImg = document.querySelector(".destination__planet-img");
@@ -14,20 +12,18 @@ const crewImg = document.querySelector(".crew__img");
 const crewProfession = document.querySelector(".crew__profession");
 const crewMemberName = document.querySelector(".crew__name");
 const crewMemberDescription = document.querySelector(".crew__description");
-const slidersBtn = Array.from(document.querySelectorAll(".slider__btn"));
-const crewContainer = document.querySelector(".crew__img-container");
+const slidersBtn = [...document.querySelectorAll(".slider__btn")];
+const container = document.querySelector(".subpage");
+const technologyImgLandscape = document.querySelector(".technology__img--landscape");
+const technologyImgPortrait = document.querySelector(".technology__img--portrait");
+const technologyName = document.querySelector(".technology__name");
+const technologyDescription = document.querySelector(
+	".technology__description"
+);
 let number = 0;
 let startPos;
 let touchLenght;
 let lastPos;
-
-/////NAV///////
-btn.addEventListener("click", function () {
-	navMenu.classList.toggle("active");
-	navMenu.classList.contains("active")
-		? (btn.style.backgroundImage = "url(assets/shared/icon-close.svg)")
-		: (btn.style.backgroundImage = "url(assets/shared/icon-hamburger.svg)");
-});
 
 /// Get JSON DATA
 const getData = async function () {
@@ -36,10 +32,7 @@ const getData = async function () {
 	return data;
 };
 
-const activeDot = function () {
-	slidersBtn.forEach(slider => slider.classList.remove("slider__btn--active"));
-	slidersBtn[number].classList.add("slider__btn--active");
-};
+
 
 /// RENDER DATA
 
@@ -56,6 +49,31 @@ const renderCrewData = function (data, i) {
 	crewMemberName.textContent = data[i].name;
 	crewMemberDescription.textContent = data[i].bio;
 };
+const renderTechnologyData = function (data, i) {
+	const width = window.innerWidth;
+	width < 1100
+		? (technologyImgLandscape.srcset = data[i].images.landscape)
+		: (technologyImgPortrait.srcset = data[i].images.portrait);
+	technologyName.textContent = data[i].name;
+	technologyDescription.textContent = data[i].description;
+};
+const renderActiveData = function (crew, technology, number) {
+	document.URL.includes("crew.html")
+		? renderCrewData(crew, number)
+		: renderTechnologyData(technology, number);
+};
+const activeDot = function () {
+	slidersBtn.forEach(slider => slider.classList.remove("slider__btn--active"));
+	slidersBtn[number].classList.add("slider__btn--active");
+};
+
+/////NAV///////
+btn.addEventListener("click", function () {
+	navMenu.classList.toggle("active");
+	navMenu.classList.contains("active")
+		? (btn.style.backgroundImage = "url(assets/shared/icon-close.svg)")
+		: (btn.style.backgroundImage = "url(assets/shared/icon-hamburger.svg)");
+});
 
 //// CHANGING PLANET DATA IN DOM
 planets.forEach((planet, i) => {
@@ -70,10 +88,10 @@ planets.forEach((planet, i) => {
 	});
 });
 
-// CHANGING CREW DATA IN DOM
+// CHANGING CREW AND TECHNOLOGY DATA
 slidersBtn.forEach((slider, i) => {
 	slider.addEventListener("click", function (e) {
-		e.preventDefault();
+		// e.preventDefault();
 		slidersBtn.forEach(slider =>
 			slider.classList.remove("slider__btn--active")
 		);
@@ -81,16 +99,18 @@ slidersBtn.forEach((slider, i) => {
 		const dataJson = getData().then(data => {
 			number = i;
 			const { crew } = data;
-			renderCrewData(crew, number);
+			const { technology } = data;
+
+			renderActiveData(crew, technology, number);
 		});
 	});
 });
 
 //// CREW TOUCH EVENTS
-crewContainer.addEventListener(
+container.addEventListener(
 	"touchstart",
 	function (e) {
-		e.preventDefault();
+		// e.preventDefault();
 		return (startPos = e.touches[0].pageX);
 	},
 	{
@@ -98,10 +118,10 @@ crewContainer.addEventListener(
 	}
 );
 
-crewContainer.addEventListener(
+container.addEventListener(
 	"touchmove",
 	function (e) {
-		e.preventDefault();
+		// e.preventDefault();
 		lastPos = e.touches[0].pageX;
 		return (touchLenght = lastPos - startPos);
 	},
@@ -110,21 +130,22 @@ crewContainer.addEventListener(
 	}
 );
 
-crewContainer.addEventListener(
+container.addEventListener(
 	"touchend",
 	function (e) {
-		e.preventDefault();
+		// e.preventDefault();
 		const dataJson = getData().then(data => {
 			const { crew } = data;
-			if (touchLenght < -30 && number < "3") {
+			const { technology } = data;
+			if (touchLenght < -30 && number < slidersBtn.length - 1) {
 				number++;
-				renderCrewData(crew, number);
+				renderActiveData(crew, technology, number);
 				activeDot();
 			}
 
 			if (touchLenght > 30 && number > "0") {
 				number--;
-				renderCrewData(crew, number);
+				renderActiveData(crew, technology, number);
 				activeDot();
 			}
 		});
